@@ -25,7 +25,10 @@ class Square extends React.Component {
     HandleClick(i){
         const squares = this.state.squares.slice();
         squares[i]=this.state.XisNext ? 'X' : 'O';
-        this.setState({squares:squares});
+        this.setState({
+          squares:squares,
+          XisNext: !this.state.XisNext,
+        });
     }
 
     renderSquare(i) {
@@ -37,7 +40,7 @@ class Square extends React.Component {
     }
   
     render() {
-      const status = 'Next player: X';
+      const status = 'Next player: '+(this.state.XisNext ? 'X' : 'O');
   
       return (
         <div>
